@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+:root{
+    --cor-fundo: #fad390;
+    --tempo-efeito: 3s;
+}
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+body{
+    padding:0;
+    margin:0;
+}
+.box{
+    width:100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--cor-fundo);
+}
+.title{
+    font-family: 'Inconsolata', monospace;
+    width:max-content;
+    font-size: clamp(1.5rem, -0.875rem + 8.333vw, 3rem);
+    position: relative;
+    margin-bottom: 10px;
+}
+.title::before,
+.title:after{
+    content: '';
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+    position: absolute;
+    
+}
+.title::before{
+    background: var(--cor-fundo);
+    animation: escrita steps(var(--tamanho-texto)) var(--tempo-efeito) 0.1s forwards ;
+}
+.title::after{
+    width:0.35rem;
+    background: black;
+    animation:  escrita steps(var(--tamanho-texto)) var(--tempo-efeito) forwards,
+                piscar ease 350ms infinite;
+}
+.subtitle{
+    font-family: sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 200;
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: aparecer ease-in 0.5s calc( var(--tempo-efeito) ) forwards;
+}
+@keyframes escrita {
+    to{
+        left: 100%;
+    }
+}
+@keyframes piscar {
+    to{
+        background: transparent;
+    }
+}
+@keyframes aparecer {
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* 23 */
