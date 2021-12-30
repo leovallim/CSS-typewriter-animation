@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
 :root{
-    --cor-fundo: #fad390;
+    --cor-fundo: #0e1635;
     --tempo-efeito: 3s;
 }
 *{
@@ -20,6 +20,8 @@ body{
     align-items: center;
     flex-direction: column;
     background: var(--cor-fundo);
+
+    color: #ffffff;
 }
 .title{
     font-family: 'Inconsolata', monospace;
@@ -44,7 +46,7 @@ body{
 }
 .title::after{
     width:0.35rem;
-    background: black;
+    background: white;
     animation:  escrita steps(var(--tamanho-texto)) var(--tempo-efeito) forwards,
                 piscar ease 350ms infinite;
 }
